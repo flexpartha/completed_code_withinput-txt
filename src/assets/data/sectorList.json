@@ -1,0 +1,111 @@
+{
+  "res":{
+  	"sector":[
+     {
+      "sectorId": "1",
+      "sectorname": "Sector 1",
+      "values":[
+        {
+          "itemId":"1",
+          "itemValue":""
+        },
+        {
+          "itemId":"2",
+          "itemValue":""
+        },
+        {
+          "itemId":"3",
+          "itemValue":""
+        },
+        {
+          "itemId":"4",
+          "itemValue":""
+        },
+        {
+          "itemId":"5",
+          "itemValue":""
+        }
+      ]
+     },
+     {
+      "sectorId": "2",
+      "sectorname": "Sector 2",
+      "values":[
+        {
+          "itemId":"1",
+          "itemValue":""
+        },
+        {
+          "itemId":"2",
+          "itemValue":""
+        },
+        {
+          "itemId":"3",
+          "itemValue":""
+        },
+        {
+          "itemId":"4",
+          "itemValue":""
+        },
+        {
+          "itemId":"5",
+          "itemValue":""
+        }
+      ]
+     },
+     {
+      "sectorId": "3",
+      "sectorname": "Sector 3",
+      "values":[
+        {
+          "itemId":"1",
+          "itemValue":""
+        },
+        {
+          "itemId":"2",
+          "itemValue":""
+        },
+        {
+          "itemId":"3",
+          "itemValue":""
+        },
+        {
+          "itemId":"4",
+          "itemValue":""
+        },
+        {
+          "itemId":"5",
+          "itemValue":""
+        }
+      ]
+     },
+     {
+      "sectorId": "4",
+      "sectorname": "Sector 4",
+      "values":[
+        {
+          "itemId":"1",
+          "itemValue":""
+        },
+        {
+          "itemId":"2",
+          "itemValue":""
+        },
+        {
+          "itemId":"3",
+          "itemValue":""
+        },
+        {
+          "itemId":"4",
+          "itemValue":""
+        },
+        {
+          "itemId":"5",
+          "itemValue":""
+        }
+      ]
+     }
+  	],
+  	"headers":["Header 1", "Header 2", "Header 3", "Header 4", "Header 5"]
+  }
+}

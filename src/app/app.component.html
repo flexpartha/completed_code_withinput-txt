@@ -1,0 +1,173 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<div class="dimension">
+  <div style="border: 1px solid red; padding: 5px 13px; order: 1;">
+    <h3>Template driven</h3>
+    <input type="text" placeholder="Enter Input 1" [(ngModel)]="input1">
+    <br>
+    <br>
+    <input type="text" placeholder="Enter Input 2" [(ngModel)]="input2">
+    <br>
+    <br>
+    <input type="text" placeholder="Enter Input Operator" [(ngModel)]="operator" (keyup)="OnKeyChange($event)">
+    <br>
+    <br>
+    <span>{{finalRes}}</span>
+    <br>
+    <br>
+    <select (change)="selectedSign($event)">
+      <option value="default">Select</option>
+      <option *ngFor="let ops of operatorSign" [value]="ops">
+        {{ops}}
+      </option>
+    </select>
+    <br>
+    <br>
+    <button type="button" (click)="submitRes()">SUBMIT</button>
+  </div>
+  <div style="border: 1px solid red; padding: 5px 13px; order: 2;margin-left: 5%;">
+
+    <form [formGroup]="formGrop1" (ngSubmit)="submitform1()">
+      <h3>REACTIVE FORMS</h3>
+      <input type="text" placeholder="Enter Input 1" formControlName="input_1">
+      <br>
+      <br>
+      <input type="text" placeholder="Enter Input 2" formControlName="input_2">
+      <br>
+      <br>
+      <input type="text" placeholder="Enter Input Operator" formControlName="operator">
+      <br>
+      <br>
+      <span>{{finalRes}}</span>
+      <br>
+      <br>
+      <select  formControlName="select1" (change)="selectedSignReac($event)">
+        <option  value="default" disabled>Select--</option>
+        <option *ngFor="let ops of operatorSign" [value]="ops">
+          {{ops}}
+        </option>
+      </select>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </div>
+  <div style="border: 1px solid red; padding: 5px 13px; order: 3;margin-left: 5%;">
+    <form [formGroup]="formGrop1" (ngSubmit)="submitform2()">
+      <h6>REACTIVE FORMS FOOR-LOOP</h6>
+      <input type="text" placeholder="Enter Input 1" formControlName="input_1">
+      <br>
+      <br>
+      <input type="text" placeholder="Enter Input 2" formControlName="input_2">
+      <br>
+      <br>
+      <input type="text" placeholder="Enter Input Operator" formControlName="operator">
+      <br>
+      <br>
+      <span>{{finalRes}}</span>
+      <br>
+      <br>
+      <select  formControlName="select1" (change)="selectedSignReac($event)">
+        <option  value="default" disabled>Select--</option>
+        <option *ngFor="let ops of operatorSign" [value]="ops">
+          {{ops}}
+        </option>
+      </select>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </div>
+  <div style="border: 1px solid red; padding: 5px 13px; order: 4;margin-left: 2%;">
+    <form [formGroup]="formMat" (ngSubmit)="submitMatform()">
+      <h6>REACTIVE Angular Material</h6>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Enter Name" formControlName="name">
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="outline">
+        <input type="email" matInput placeholder="Enter Email" formControlName="email">
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="outline">
+        <mat-select placeholder="Select Position" formControlName="position" (selectionChange)="posChange($event)">
+          <mat-option *ngFor="let position of officialPosition" [value]="position.empPos">{{position.empPos}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <button type="submit" mat-button>Submit</button>
+    </form>
+  </div>
+  <div style="border: 1px solid red; padding: 5px 13px; order: 5;margin-left: 2%;">
+    <h6>REACTIVE Get Values</h6>
+    <mat-form-field  appearance="outline">
+      <input type="text" matInput placeholder="Enter Name"  [formControl]="getname">
+    </mat-form-field>
+    <br/>
+    <mat-form-field  appearance="outline">
+      <input type="email" matInput placeholder="Enter Email"  [formControl]="getemail">
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="outline">
+      <mat-select placeholder="Select Position" [formControl]="getPos">
+        <mat-option *ngFor="let position of officialPosition" [value]="position.empPos">{{position.empPos}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<br/>
+<br/>
+  <div style="display:block;width:50%;height:auto">
+    <table>
+      <thead>
+          <tr>
+              <th class="th" scope="col">Sector</th>
+              <th class="th" scope="col" *ngFor="let tableHeader of displayedColumns">{{tableHeader}}</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let rowData of sectorYList; let rowIndex=index;">
+              <td class="td">{{rowData.projectname}}</td>
+              <td class="td" *ngFor="let colData of rowData.values; let i=index">
+                <input  style="border: none; text-align: center; height: auto;"
+                type="text" [(ngModel)]="colData.monthalue"  oninput="this.value = this.value.replace(/[^0-9\.-]/g, '').replace(/(.)-+/g, '$1');" placeholder="Enter Value">
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+  <div style="display:block;width:50%;height:auto;  position: relative; top: 110px;left: 0;">
+    <button type="submit" (click)="submitSector()">Submit</button>
+  </div>
+  <br/>
+  <br/>
+  <div class="row" style="margin-top: 100px;">
+    <div class="col-md-6">
+        <!-- <mat-form-field class="datepicker" appearance="outline" class="mat-form-field"> 
+          <mat-label style="color: #000 !important; font-size: 16px;">Select Month</mat-label>
+          <input readonly matInput [matDatepicker]="dp" [(ngModel)]="month" [max] ="maxDate">
+          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker #dp startView="multi-year"
+          (monthSelected)="_from_monthSelectedHandler($event,dp)"
+          panelClass="example-month-picker"></mat-datepicker>
+        </mat-form-field>
+      </div> -->
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label style="color: #000 !important;">Select Date</mat-label>
+        <input readonly matInput [matDatepicker]="dp"  [(ngModel)]="todaysDate"
+        (dateChange)="fromDateChangeControl('change', $event)">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field>
+</div>
+<br/>
+<br/>
+  <div class="row" style="margin-top: 5px;position: relative;">
+    <table mat-table [dataSource]="monthValue"  class="mat-elevation-z8">
+      <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+        <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.monthalue}}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

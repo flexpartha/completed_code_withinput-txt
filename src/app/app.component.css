@@ -1,0 +1,31 @@
+p {
+  font-family: Lato;
+}
+
+.dimension{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.disabled {
+  pointer-events: none;
+  color: rgba(0, 0, 0, 0.38);
+}
+
+table{
+  width: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: 75%;
+}
+
+.th{
+  padding: 5px 13px;
+  border: 1px solid grey;
+}
+.td{
+  
+  border: 1px solid grey;
+}
