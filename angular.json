@@ -93,5 +93,10 @@
       }
     }
   },
-  "defaultProject": "demo"
+  "defaultProject": "demo",
+  "cli": {
+    "cache": {
+      "enabled": false
+    }
+  }
 }

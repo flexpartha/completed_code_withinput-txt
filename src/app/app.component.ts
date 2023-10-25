@@ -212,11 +212,12 @@ export class AppComponent implements OnInit {
   }
 
    calculation = {
-    '+': function (x, y) { return x + y },
-    '-': function (x, y) { return x - y },
-    '*': function (x, y) { return x * y },
-    '/': function (x, y) { return x / y},
-    '%': function (x, y) { return (x * y) / 100}
+    //functions are stored as a variable in an object. First-Order Function
+    '+': (x, y)=> { return x + y },
+    '-': (x, y)=> { return x - y },
+    '*': (x, y)=> { return x * y },
+    '/': (x, y)=> { return x / y},
+    '%': (x, y)=> { return (x * y) / 100}
   }​​​​​​​
 
   selectedSignReac(evt){
@@ -390,6 +391,7 @@ export class AppComponent implements OnInit {
       console.log(this.displayedColumns);
       this.service1.getyearSectorListdata().subscribe((res:any)=>{
         this.sectorYList = res.res.sector;
+        console.log(this.sectorYList);
         this.sectorYList.forEach((item)=>{
           this.monthValue = item.values;
           console.log(this.monthValue);
